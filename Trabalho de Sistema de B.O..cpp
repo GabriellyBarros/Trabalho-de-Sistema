@@ -14,7 +14,7 @@
 	 char profissao[50];
  }Identificacao_basica;
  
- //Descricao dealhada do suspeito
+ //Descricao detalhada do suspeito
  typedef struct{
  	char altura_aprox[10];
  	char cor_pele[30];
