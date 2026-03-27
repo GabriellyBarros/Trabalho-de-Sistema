@@ -6,7 +6,8 @@
 	 char nome[100];
 	 char alcunha_vulgo[50];
      int idade_aprox;
-	 char cpf[15];
+	 char CPF[15];
+	 char RG[12];
 	 char sexo[20];
 	 char naturalidade[100];
 	 char filiacao[500]; //Nome do pai e da mae 
@@ -28,13 +29,28 @@
  
  //Dados de localizacao e contato
  typedef struct{
+ 	char endereco_do_ocorrido[70];//bairro,cidade
  	char telefone_celular[20];//formato (xx) 9xxxx-xxxx
  	char redes_sociais[50];
  	char locais_frequentes[100];//onde costuma ser visto
+ 	char testemunhas_ou_vitimas[500];//informar dados de testesmunhas ou vitimas 
+ 	
  }Dados_de_localizacao_e_contato;
- 
- //Dados sobre o veiculo(se envolvido)
- typedef struct{
+ 	
+//Dados da fuga
+typedef struct{
+	char modo_de_evasao[50];//especificar se foi a pe,em veiculo roubado ou em transporte publico
+	int tem_cumplices;//1 para sim, 0 para nao
+	char nome_ou_apelido_dos_cumplices[500];
+	char papel_dos_cumplices[200];//Se era o motorista,se deu cobertura ou se forneceu o veiculo
+	char descricao_cumplices[500];//descricao das caracteristicas dos envolvidos(ex.:roupa,cor e formato dos olhos,tipo de corte de cabelo,cor,bigode,etc)
+	char direcao_fuga[100];//para onde fugiu,localizacao de fuga 
+	char ponte_de_referencia_de_fuga[100];//ex:passou em frente ao posto de saude
+	char ultima_visualizacao[50];//cruzamento exato ou ultima camera que registrou 
+}Informacao_da_fuga;
+
+  //Dados sobre o veiculo(se envolvido)
+typedef struct{
  	char tipo_de_veiculo[20];//carro,moto,caminhao,etc
  	char placa[10];
  	char marca[30];//informar fabricante:Fiat,Ford,etc
@@ -47,32 +63,22 @@
  	char tipo_pelicula[30];//comum,espelhada 
  	char rodas_detalhes[50];//sem calota,roda esportiva
  	char caracteristicas_especificas[100];//adesivos,amassados,farois queimados
- }Dados_do_veiculo 
+ }Dados_do_veiculo;
+ 
+ //Dinamica do envolvimento
+ typedef struct{
+	 char relacao_com_a_vitima[50];//conhecido,vizinho,ex-parceiro,desconhecido
+	 char funcao[50];//autor,coautor,mandante,receptador
+	 char armamento[50];//arma de fogo,arma branca,sem arma
+	 char forma_de_acao[60];//agressivo,calmo
+	 char relato_do_crime[2000];//descricao de como o crime ocorreu	 
+ }Dinamica_do_envolvimento;	
  	
-//Dados da fuga
-typedef struct{
-	int num_ocupantes;//quantos suspeitos estavam no veiculo 
-	char direcao_fuga[100];//para onde fugiu,localizacao de fuga 
-	char ponte_de_referencia_de_fuga[100];//ex:passou em frente ao posto de saude
-	char ultima_visualizacao[50];//cruzamento exato ou ultima camera que registrou 
-	int furou_sinal;
+ 	
+	 
+ 
+	 
 
-
-
-	
-	
-	
-	
-}Informacao da fuga
- 	
- 	
- 	
-	 
-	 
-	 
-	 
-	 
- }Dados_sobre_o_veiculo
 int main(){
 	
 	 return 0;	  
