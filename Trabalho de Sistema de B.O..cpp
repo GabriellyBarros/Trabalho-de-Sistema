@@ -44,14 +44,19 @@
  typedef struct{
  	char razao_social[100];//nome social de registro da empresa
  	char nome_fantasia[100];//nome comercial/nome da fachada
- 	char cnpj[20];
- 	
-	 
-	 
-	 
-	 
-	 
-	 
+ 	char cnpj[20];//Cadastro Nacional da Pessoa Jurídica- o "CPF" da empresa
+ 	char inscricao_estadual[20];//registro para pagamento de ICMS
+ 	char inscricao_municipal[20];//registro na prefeitura 
+ 	char data_de_abertura[11];//data de fundacao da empresa. ex.: DD/MM/AAAA
+ 	char cnae[100];//Ramo de atividade.(O que a empresa faz legalmente)
+ 	char porte_da_empresa[50];//tamanho da empresa(MEI,Micro,Multinacional)
+ 	char endereco_da_sede[150];//endereço completo da matriz/sede
+ 	char telefone_fixo[20];//telefone comercial de contato
+ 	char email_corp[100];//E-mail oficial da empresa
+ 	char site_redes[100];//site oficial ou perfis em redes sociais
+ 	char nome_responsavel[100];//nome do sócio ou administrador principal
+ 	char cargo_responsavel[50];//cargo de quem responde pela empresa
+ 	char vinculo_crime[500];//como a empresa foi usada no ocorrido
  }Dados_PJ;
  	
 //Dados da fuga
@@ -102,7 +107,7 @@ typedef struct{
 	 char tipo_de_objeto_envolvido[50];//celular,dinheiro,joia,documento,etc
 	 char descricao_do_objeto[50];//marca,modelo,cor,estado de conservação
 	 char identificacao_tecnica_do_objeto[50];//IMEI de celular ou número de série
-	 int quantidade_do_objetos;
+	 int quantidade_de_objetos;
 	 float valor_do_prejuizo;
 	 char meio_empregado[50];//arrombamento,chave falsa,escalada,destreza
 	 char uso_de_violencia_ou_ameaca[50];//sim ou não e qual tipo
@@ -141,15 +146,19 @@ int main(){
                     
                     printf("Digite a data de nascimento");
                     char data_de_nascimento[11];
+                    fgets(data_de_nascimento, sizeof(data_de_nascimento), stdin);
                     
                     printf("Digite a idade aproximada");
                     int idade_aprox;
+                    scanf("%d", &idade_aprox);
                     
                     printf("Digite o CPF");
 	                char CPF[15];
+	                fgets(CPF, sizeof(CPF), stdin);
 	                
 	                printf("Digite o RG");
 	                char RG[12];
+	                fgets(RG, sizeof(RG), stdin);
 	                
 	                printf("Digite o sexo");
 	                char sexo[20];
@@ -157,11 +166,11 @@ int main(){
 	                
 	                printf("Digite a naturalidade");
                     char naturalidade[100];
-                    fgets(naturaliadade, sizeof(naturalidade), stdin);
+                    fgets(naturalidade, sizeof(naturalidade), stdin);
                     
                     printf("Digite a filiação");
 	                char filiacao[500]; 
-					 fgets(filiacao, sizeof(filiacao), stdin);
+                    fgets(filiacao, sizeof(filiacao), stdin);
 					 
 					printf("Digite o endereço"); 
 	                char endereco[100]; 
@@ -169,225 +178,301 @@ int main(){
 	                
 	                printf("Digite a profissão");
 	                char profissao[50];
-	                fgets(profissao, sizeof(preofissao), stdin);
+	                fgets(profissao, sizeof(profissao), stdin);
 	                
 	                 //Descricao detalhada do suspeito
 	                
 	                 printf("Digite a altura aproximada");
 	                char altura_aprox[10];
-	                
+	                fgets(altura_aprox, sizeof(altura_aprox), stdin);
 	                
 	                printf("Digite a cor de pele");
                     char cor_pele[30];
-                    
+                    fgets(cor_pele, sizeof(cor_pele), stdin);
                     
                     printf("Digite a cor dos olhos");
  	                char cor_olhos[30];
- 	                
+ 	                fgets(cor_olhos, sizeof(cor_olhos), stdin);
  	                
  	                printf("Digite o cabelo");
  	                char cabelo[50]; 
- 	                
+ 	                fgets(cabelo, sizeof(cabelo), stdin);
  	                
  	                printf("Digite o porte físico");
  	                char porte_fisico[50];
- 	                
+ 	                fgets(porte_fisico, sizeof(porte_fisico), stdin);
  	                
  	                printf("Digite sinais particulares");
  	                char sinais_particulares[200];
- 	                
+ 	                fgets(sinais_particulares, sizeof(sinais_particulares), stdin);
  	                
  	                printf("Digite vestuário");
  	                char vestuario[150];
- 	                
+ 	                fgets(vestuario, sizeof(vestuario), stdin);
  	                
  	                printf("Digite vícios/hábitos");
  	                char vicios_habitos[500];
- 	                
+ 	                fgets(vicios_habitos, sizeof(vicios_habitos), stdin);
  	                
  	                
  	                 //Dados de localizacao e contato
   
   					printf("Digite o endereço do ocorrido");
 	                char endereco_do_ocorrido[70];
-	                
+	                fgets(endereco_do_ocorrido, sizeof(endereco_do_ocorrido), stdin);
 	                
 	                printf("Digite o telefone/celular");
                 	char telefone_celular[20];
-                	
+                	fgets(telefone_celular, sizeof(telefone_celular), stdin);
                 	
                 	printf("Digite as redes sociais ");
  	                char redes_sociais[50];
- 	                
+ 	                fgets(redes_sociais, sizeof(redes_sociais), stdin);
  	                
  	                printf("Digite os locais frequentes");
  	                char locais_frequentes[100];
- 	                
+ 	                fgets(locais_frequentes, sizeof(locais_frequentes), stdin);
  	                
  	                printf("Digite testemunhas ou vítimas");
                  	char testemunhas_ou_vitimas[500];
+                 	fgets(testemunhas_ou_vitimas, sizeof(testemunhas_ou_vitimas), stdin);
                  	
+                 	//Dados da pessoa jurídica envolvida (o vínculo)
                  	
+                    printf("Digite razão social");
+                 	char razao_social[100];
+                 	fgets(razao_social, sizeof(razao_social), stdin);
+                 	
+     	            printf("Digite nome fantasia");
+ 	                char nome_fantasia[100];
+ 	                fgets(nome_fantasia, sizeof(nome_fantasia), stdin);  
+ 	                  
+                    printf("Digite CNPJ");
+ 	                char cnpj[20];
+ 	                fgets(cnpj, sizeof(cnpj), stdin);
+ 	                
+ 	                printf("Digite inscrição estadual"); 
+ 	                char inscricao_estadual[20];
+ 	                fgets(inscricao_estadual, sizeof(inscricao_estadual), stdin);
+ 	                
+ 	                printf("Digite inscrição municipal"); 
+ 	                char inscricao_municipal[20];
+ 	                fgets(inscricao_municipal, sizeof(inscricao_municipal), stdin);
+ 	                
+ 	                printf("Digite data de abertura"); 
+ 	                char data_de_abertura[11];
+ 	                fgets(data_de_abertura, sizeof(data_de_abertura), stdin);
+ 	                
+ 	                printf("Digite CNAE");  
+ 	                char cnae[100];
+ 	                fgets(cnae, sizeof(cnae), stdin);
+ 	                
+ 	                printf("Digite porte da empresa"); 
+                    char porte_da_empresa[50];
+                    fgets(porte_da_empresa, sizeof(porte_da_empresa), stdin);
+                    
+                    printf("Digite endereço da sede"); 
+                    char endereco_da_sede[150];
+                    fgets(endereco_da_sede, sizeof(endereco_da_sede), stdin);
+                    
+                    printf("Digite telefone fixo"); 
+ 	                char telefone_fixo[20];
+ 	                fgets(telefone_fixo, sizeof(telefone_fixo), stdin);
+ 	                
+ 	                printf("Digite email corp"); 
+ 	                char email_corp[100];
+ 	                fgets(email_corp, sizeof(email_corp), stdin);
+ 	                
+ 	                printf("Digite site redes"); 
+ 	                char site_redes[100];
+ 	                fgets(site_redes, sizeof(site_redes), stdin);
+ 	                
+ 	                printf("Digite nome responsavel"); 
+ 	                char nome_responsavel[100];
+ 	                fgets(nome_responsavel, sizeof(nome_responsavel), stdin);
+ 	                
+ 	                printf("Digite cargo responsavel"); 
+                	char cargo_responsavel[50];
+                	fgets(cargo_responsavel, sizeof(cargo_responsavel), stdin);
+                	
+                    printf("Digite vinculo crime");	
+ 	                char vinculo_crime[500];
+                 	fgets(vinculo_crime, sizeof(vinculo_crime), stdin);
+            	
                  	
                  	//Dados da fuga
                  	
                  	printf("Digite o modo de evasão");
                  	char modo_de_evasao[50];
-                 	
+                 	fgets(modo_de_evasao, sizeof(modo_de_evasao), stdin);
                  	
                  	printf("Digite tem cúmplices?");
 	                int tem_cumplices;
-	                
+	                scanf("%d", &tem_cumplices);
 	                
 	                printf("Digite nome ou apelido dos cúmplices");
 	                char nome_ou_apelido_dos_cumplices[500];
-	                
+	                fgets(nome_ou_apelido_dos_cumplices, sizeof(nome_ou_apelido_dos_cumplices), stdin);
 	                
 	                printf("Digite papel dos cúmplices");
 	                char papel_dos_cumplices[200];
-	                
+	                fgets(papel_dos_cumplices, sizeof(papel_dos_cumplices), stdin);
 	                
 	                printf("Digite descrição dos cúmplices");
 	                char descricao_cumplices[500];
-	                
+	                fgets(descricao_cumplices, sizeof(descricao_cumplices), stdin);
 	                
 	                printf("Digite direção da fuga");
 	                char direcao_fuga[100];
-	                
+	                fgets(direcao_fuga, sizeof(direcao_fuga), stdin);
 	                
 	                printf("Digite ponto de referência");
 	                char ponto_de_referencia_de_fuga[100];
-	                
+	                fgets(ponto_de_referencia_de_fuga, sizeof(ponto_de_referencia_de_fuga), stdin);
 	                
 	                printf("Digite última visualização");
 	                char ultima_visualizacao[50];
-	                
+	                fgets(ultima_visualizacao, sizeof(ultima_visualizacao), stdin);
 	                
 	                
 	                //Dados sobre o veiculo(se envolvido)
 	                
 	                printf("Digite tipo de veículo");
 	                char tipo_de_veiculo[20];
-	                
+	                fgets(tipo_de_veiculo, sizeof(tipo_de_veiculo), stdin);
 	                
 	                printf("Digite placa");
                     char placa[10];
-                    
+                    fgets(placa, sizeof(placa), stdin);
                     
                     printf("Digite marca");
  	                char marca[30];
- 	                
+ 	                fgets(marca, sizeof(marca), stdin);
  	                
  	                printf("Digite modelo");
  	                char modelo[50];
- 	                
+ 	                fgets(modelo, sizeof(modelo), stdin);
  	                
  	                printf("Digite cor");
  	                char cor[20];
- 	                
+ 	                fgets(cor, sizeof(cor), stdin);
  	                
  	                printf("Digite ano");
  	                int ano;
- 	                
+ 	                scanf("%d", &ano);
  	                
  	                printf("Digite estado de conservação");
                 	char estado_de_conservacao[50];
-                	
+                	fgets(estado_de_conservacao, sizeof(estado_de_conservacao), stdin);
                 	
                 	printf("Digite nível de insulfilm");
                 	char nivel_insulfilm[10];
+                    fgets(nivel_insulfilm, sizeof(nivel_insulfilm), stdin);
                 	 
-                	 
-                	 printf("Digite tipo de película");
+                    printf("Digite tipo de película");
  	                char tipo_pelicula[30];
-                	
+                	fgets(tipo_pelicula, sizeof(tipo_pelicula), stdin);
                 	
                 	printf("Digite estado da película");
  	                char estado_pelicula[50]; 
- 	                
+ 	                fgets(estado_pelicula, sizeof(estado_pelicula), stdin);
  	                
  	                printf("Digite detalhe das rodas");
  	                char detalhe_das_rodas[50];
- 	                
+ 	                fgets(detalhe_das_rodas, sizeof(detalhe_das_rodas), stdin);
  	                
  	                printf("Digite características específicas");
  	                char caracteristicas_especificas[100];
- 	                
+ 	                fgets(caracteristicas_especificas, sizeof(caracteristicas_especificas), stdin);
  	                
  	                
  	                //Dinamica do envolvimento
  	                
                     printf("Digite relação com a vítima");
  	                char relacao_com_a_vitima[50];
+ 	                fgets(relacao_com_a_vitima, sizeof(relacao_com_a_vitima), stdin);
  	                
- 	                
-                    printf("Digite função do suspeito");
+                    printf("Digite papel no crime");
 	                char papel_no_crime[50];
-	                
+	                fgets(papel_no_crime, sizeof(papel_no_crime), stdin);
 	                
                     printf("Digite armamento utilizado no crime");
 	                char armamento_utilizado_no_crime[50];
-	                
+	                fgets(armamento_utilizado_no_crime, sizeof(armamento_utilizado_no_crime), stdin);
 	                
 	                printf("Digite forma de ação");
 	                char forma_de_acao[60];
-	                
-	                
-	                printf("Digite relato do crime");
-	                char relato_do_crime[2000];
+	                fgets(forma_de_acao, sizeof(forma_de_acao), stdin);
 	                
 	                //Dados do ocorrido
 	                
+	                printf("Digite natureza do ocorrido");
  	                char natureza_do_ocorrido[50];
+ 	                fgets(natureza_do_ocorrido, sizeof(natureza_do_ocorrido), stdin);
  	                
- 	                
+ 	                printf("Digite status do fato");
 	                char status_do_fato[20];
+	                fgets(status_do_fato, sizeof(status_do_fato), stdin);
 	                
-	                
+	                printf("Digite data e hora");
 	                char data_e_hora[20];
+	                fgets(data_e_hora, sizeof(data_e_hora), stdin);
 	                
-	                
+	                printf("Digite endereco completo do local");
 	                char endereco_completo_do_local[100];
+	                fgets(endereco_completo_do_local, sizeof(endereco_completo_do_local), stdin);
 	                
-	                
+	                printf("Digite tipo de local");
 	                char tipo_de_local[50];
+	                fgets(tipo_de_local, sizeof(tipo_de_local), stdin);
 	                
-	                
+	                printf("Digite  ponto de referencia");
 	                char ponto_de_referencia[50];
+	                fgets(ponto_de_referencia, sizeof(ponto_de_referencia), stdin);
 	                
-	                
+	                printf("Digite relato detalhado do crime");
 	                char relato_detalhado_do_crime[2000];
+					fgets(relato_detalhado_do_crime, sizeof(relato_detalhado_do_crime), stdin);
 					
-						
+					printf("Digite  tipo de objeto envolvido");	
 	                char tipo_de_objeto_envolvido[50];
+	                fgets(tipo_de_objeto_envolvido, sizeof(tipo_de_objeto_envolvido), stdin);
 	                
-	                
+	                printf("Digite descricao do objeto");
 	                char descricao_do_objeto[50];
+	                fgets(descricao_do_objeto, sizeof(descricao_do_objeto), stdin);
 	                
-	                
+	                printf("Digite identificacao tecnica do objeto");
 	                char identificacao_tecnica_do_objeto[50];
+	                fgets(identificacao_tecnica_do_objeto, sizeof(identificacao_tecnica_do_objeto), stdin);
 	                
+	                printf("Digite quantidade de objetos");
+	                int quantidade_de_objetos;
+	                scanf("%d", &quantidade_de_objetos);
 	                
-	                int quantidade_do_objetos;
-	                
-	                
+	                printf("Digite valor do prejuizo");
 	                float valor_do_prejuizo;
+	                scanf("%f", &valor_do_prejuizo);
 	                
-	                
+	                printf("Digite meio empregado");
 	                char meio_empregado[50];
+	                fgets(meio_empregado, sizeof(meio_empregado), stdin);
 	                
-	                
+	                printf("Digite uso de violencia ou ameaca");
 	                char uso_de_violencia_ou_ameaca[50];
+	                fgets(uso_de_violencia_ou_ameaca, sizeof(uso_de_violencia_ou_ameaca), stdin);
 	                
-	                
+	                printf("Digite preservacao do local");
 	                char preservacao_do_local[10];
+	                fgets(preservacao_do_local, sizeof(preservacao_do_local), stdin);
 	                
-	                
+	                printf("Digite vestigios deixados no local");
 	                char vestigios_deixados_no_local[70];
+	                fgets(vestigios_deixados_no_local, sizeof(vestigios_deixados_no_local), stdin);
 	                
-	                
+	                printf("Digite existencia de cameras de monitoramento");
 	                char existencia_de_cameras_de_monitoramento[5];
-	                
+	                fgets(existencia_de_cameras_de_monitoramento, sizeof(existencia_de_cameras_de_monitoramento), stdin);
 	                
 	                
 				}
