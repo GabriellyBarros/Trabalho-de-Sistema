@@ -120,22 +120,6 @@ typedef struct{
     printf("Dados do Suspeito inicializado com sucesso!\n");
  }
 
- void listarTodosSuspeitos(){
-	printf("\n===== RELATÓRIO DE SUSPEITOS CADASTRADOS =====\n");
-
-	if(contador_registro == 0) {
-		printf("Nenhum registro encontrado.\n");
-		return;
-	}
-
-	for (int i = 0; i< contador_registro; i++){
-		printf("\n----------Ficha do Suspeito ID: %03d----------\n", registros[i]. identificacao.Id_do_suspeito);
-		printf("NOME:          %s\n", registros[i].identificacao.nome);
-		printf("CPF:           %s\n", registros[i]. identificacao.CPF);
-		printf("-------------------------------------------------\n");
-	}
-}
-
  void registrarSuspeito(){
 	if (contador_registro >= 100){
 		printf("Limite de registros atingido!\n");
